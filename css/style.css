@@ -25,5 +25,215 @@ body {
   cursor: pointer;
   font-size: 20px;
 }
-
-/*# sourceMappingURL=style.css.map */
+.container #btn1 {
+  background-color: black;
+  color: white;
+  transition: all 0.3s linear;
+}
+.container #btn1:hover {
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  color: black;
+  box-shadow: 5px 5px black;
+  transform: translate(-5px, -5px);
+  transition: all 0.3s linear;
+}
+.container #btn2 {
+  position: relative;
+  background-color: black;
+  color: white;
+  transition: all 0.3s linear;
+  border: none;
+  padding: 10px 20px;
+}
+.container #btn2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -1;
+  transition: all 0.3s linear;
+}
+.container #btn2::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -2;
+  transition: all 0.3s linear;
+}
+.container #btn2:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  transform: translate(-5px, -5px);
+}
+.container #btn2:hover::before {
+  background-color: white;
+}
+.container #btn2:hover::after {
+  transform: translate(5px, 5px);
+}
+.container #btn3 {
+  background-color: rgb(0, 125, 0);
+  color: white;
+  border-color: black;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+.container #btn3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 10%;
+  height: 100%;
+  background: linear-gradient(120deg, white, white, white);
+  transform: skewX(-25deg);
+  animation: shine-out 0.5s forwards paused;
+}
+.container #btn3:hover {
+  background-color: rgb(37, 202, 37);
+}
+.container #btn3:hover::before {
+  animation: shine-in 0.5s forwards running;
+}
+.container #btn3:not(:hover)::before {
+  animation: shine-out 0.5s forwards running;
+}
+@keyframes shine-in {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+@keyframes shine-out {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+.container #shape1 {
+  width: 200px;
+  height: 200px;
+  background-color: grey;
+  transition: all 0.5s ease;
+  position: relative;
+  cursor: pointer;
+}
+.container #shape1::before {
+  content: "Hello";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.container #shape1:hover {
+  background-color: yellow;
+}
+.container #shape1:hover::before {
+  opacity: 1;
+}
+.container #shape2 {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  border-radius: 0%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  transition: all 1s ease;
+  position: absolute;
+  overflow: hidden;
+  animation: move-and-transform 5s linear infinite;
+}
+@keyframes move-and-transform {
+  0% {
+    position: absolute;
+    background-color: red;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    border-radius: 0%;
+  }
+  1% {
+    background-color: red;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  25% {
+    position: absolute;
+    background-color: green;
+    top: 0;
+    left: calc(33.3333333333vw - 105px);
+    clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    border-radius: 50%;
+  }
+  50% {
+    background-color: brown;
+    top: calc(50vh - 105px);
+    left: calc(33.3333333333vw - 105px);
+    clip-path: polygon(50% 0%, 50% 0%, 50% 0%, 100% 100%, 0% 100%);
+    border-radius: 0%;
+  }
+  75% {
+    background-color: chocolate;
+    top: calc(50vh - 105px);
+    left: 0;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    border-radius: 0%;
+  }
+  100% {
+    background-color: red;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 100% 100%, 0% 100%);
+    border-radius: 0%;
+  }
+}
+.container #figure1 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.container #figure1 img {
+  width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  transition: filter 0.5s ease;
+}
+.container #figure1 figcaption {
+  opacity: 0;
+  margin: 0;
+  padding: 10px 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  text-align: center;
+  background-color: pink;
+  transform: translateY(-10px);
+}
+.container #figure1:hover img {
+  filter: grayscale(100%);
+}
+.container #figure1:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}/*# sourceMappingURL=style.css.map */
